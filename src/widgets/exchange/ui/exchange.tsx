@@ -1,5 +1,4 @@
 import { selectConvert, useConvertActions } from "entities/convert";
-import { setOutputAmount } from "entities/convert/model";
 import { FC, useEffect } from "react";
 import { useSelector } from "react-redux";
 import Select from "react-select";
