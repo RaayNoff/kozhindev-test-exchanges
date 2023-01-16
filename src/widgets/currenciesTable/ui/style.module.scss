@@ -1,42 +1,40 @@
 .currencies {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	row-gap: 1em;
+	min-height: 630px;
 
-	&__item {
-		width: 100%;
-		margin-bottom: 0.3em;
+	&_hidden {
+		opacity: 0;
 	}
+}
 
-	&__header {
-		width: 100%;
-		display: flex;
-		align-items: center;
-		column-gap: 5%;
-		padding: 0 0.8em;
-
-		text-align: start;
-
-		background-color: #6b778d;
-		color: #fff;
+.table {
+	&__row {
+		border-radius: 1em;
+	}
+	&__col {
+		background-color: #525252;
+		width: 10%;
+		padding: 0.5em;
+		text-align: center;
 		font-size: 1.2rem;
-		line-height: 1.2em;
+		color: #fff;
 		font-weight: 600;
-
-		height: 40px;
-		border-radius: 10px 10px 0 0;
-	}
-
-	&__head {
-		width: 14.2857142857%;
+		border-radius: 2px;
+		@media (max-width: 525.98px) {
+			font-size: 1rem;
+			font-weight: 500;
+			padding: 0.2em;
+		}
+		@media (max-width: 401.98px) {
+			font-size: 0.75rem;
+		}
 	}
 }
 
 .loader {
-	position: relative;
-	top: 0;
+	position: absolute;
+	top: 25%;
 	left: 50%;
+	transform: translateX(-50%);
 	width: 5em;
 	color: #2074ff;
 }

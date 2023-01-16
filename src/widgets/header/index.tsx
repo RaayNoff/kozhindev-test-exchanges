@@ -33,7 +33,7 @@ const Header: FC = () => {
 			<div className="container">
 				<div className={s.header__container}>
 					<a href={"/home" as Route} title="Exchanges" className={s.header__logo}>
-						<h1>Exchanges & Currencies</h1>
+						<h1>Exchange & Currencies</h1>
 					</a>
 
 					<div className={clsx(s.info)}>

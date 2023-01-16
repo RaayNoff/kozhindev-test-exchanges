@@ -14,42 +14,39 @@ interface CurrenciesTableProps {
 const CurrenciesTable: FC<CurrenciesTableProps> = ({ className }) => {
 	const { currenciesList, isLoading, error } = useSelector(selectCurrencies);
 
-	if (isLoading) {
-		return <Loader className={s.loader} />;
-	}
 	if (error) {
 		return <p className={s.error}>Произошла ошибка</p>;
 	}
 
 	return (
-		<table className={clsx(s.main__сurrencies, s.currencies, className)}>
-			<thead>
-				<tr className={s.currencies__header}>
-					<th className={s.currencies__head}>№</th>
-					<th className={s.currencies__head}>Code</th>
-					<th className={s.currencies__head}>Name</th>
-					<th className={s.currencies__head}>RUB</th>
-					<th className={s.currencies__head}>USD</th>
-					<th className={s.currencies__head}>EUR</th>
-					<th className={s.currencies__head}>CNY</th>
-				</tr>
-			</thead>
-			<tbody>
-				{currenciesList?.map((cur, i) => (
-					<Currency
-						className={s.currencies__item}
-						index={i + 1}
-						key={cur.code}
-						code={cur.code}
-						name={cur.name}
-						toCNY={cur.toCNY}
-						toEUR={cur.toEUR}
-						toRUB={cur.toRUB}
-						toUSD={cur.toUSD}
-					/>
-				))}
-			</tbody>
-		</table>
+		<>
+			{isLoading && <Loader className={s.loader} />}
+			<table
+				className={clsx(
+					s.currencies,
+					s.table,
+					className,
+					isLoading && s.currencies_hidden,
+				)}
+			>
+				<tbody>
+					{currenciesList?.map((cur, i) => (
+						<Currency
+							className={s.table__row}
+							cellClassName={s.table__col}
+							index={i + 1}
+							key={cur.code}
+							code={cur.code}
+							name={cur.name}
+							toCNY={cur.toCNY}
+							toEUR={cur.toEUR}
+							toRUB={cur.toRUB}
+							toUSD={cur.toUSD}
+						/>
+					))}
+				</tbody>
+			</table>
+		</>
 	);
 };
 
