@@ -14,25 +14,26 @@ const Header: FC = () => {
 	const { updateTimestamp } = useSelector(selectCurrencies);
 	const { setUpdateTimestamp, updateCurrencies } = useCurrenciesActions();
 	const { getConversion } = useConvertActions();
-	const { inputCurrency, outputCurrency } = useSelector(selectConvert);
+	const { inputCurrency, outputCurrency, inputValue } =
+		useSelector(selectConvert);
 
 	const refreshCurrenciesData = useCallback(() => {
 		setUpdateTimestamp();
 		updateCurrencies();
 		getConversion({
-			amount: 10,
+			amount: inputValue,
 			inputCurrency: inputCurrency,
 			outputCurrency: outputCurrency,
 			isOutput: false,
 		});
-	}, []);
+	}, [inputValue]);
 
 	return (
 		<header className={s.header}>
 			<div className="container">
 				<div className={s.header__container}>
-					<a href="#" title="Exchanges Test" className={s.header__logo}>
-						<h1>Exchanges Test</h1>
+					<a href={"/home" as Route} title="Exchanges" className={s.header__logo}>
+						<h1>Exchanges & Currencies</h1>
 					</a>
 
 					<div className={clsx(s.info)}>

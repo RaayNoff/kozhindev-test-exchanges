@@ -7,7 +7,11 @@ import { Currency, Loader } from "shared";
 
 import s from "./style.module.scss";
 
-const CurrenciesTable: FC = () => {
+interface CurrenciesTableProps {
+	className?: string;
+}
+
+const CurrenciesTable: FC<CurrenciesTableProps> = ({ className }) => {
 	const { currenciesList, isLoading, error } = useSelector(selectCurrencies);
 
 	if (isLoading) {
@@ -18,7 +22,7 @@ const CurrenciesTable: FC = () => {
 	}
 
 	return (
-		<table className={clsx(s.main__сurrencies, s.currencies)}>
+		<table className={clsx(s.main__сurrencies, s.currencies, className)}>
 			<thead>
 				<tr className={s.currencies__header}>
 					<th className={s.currencies__head}>№</th>

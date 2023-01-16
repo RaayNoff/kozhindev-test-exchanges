@@ -19,8 +19,8 @@ const Home: FC = () => {
 			<Header />
 			<main className={s.main}>
 				<div className="container">
-					<CurrenciesTable />
-					<Exchange />
+					<CurrenciesTable className={s.main__table} />
+					<Exchange className={s.main__exchange} />
 				</div>
 			</main>
 		</>
