@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { FC } from "react";
+import { FC, useCallback } from "react";
 
 import { selectCurrencies, useCurrenciesActions } from "entities/сurrencies";
 import { selectConvert, useConvertActions } from "entities/convert";
@@ -16,7 +16,7 @@ const Header: FC = () => {
 	const { getConversion } = useConvertActions();
 	const { inputCurrency, outputCurrency } = useSelector(selectConvert);
 
-	const refreshCurrenciesData = () => {
+	const refreshCurrenciesData = useCallback(() => {
 		setUpdateTimestamp();
 		updateCurrencies();
 		getConversion({
@@ -25,7 +25,7 @@ const Header: FC = () => {
 			outputCurrency: outputCurrency,
 			isOutput: false,
 		});
-	};
+	}, []);
 
 	return (
 		<header className={s.header}>
