@@ -29,6 +29,17 @@ const CurrenciesTable: FC<CurrenciesTableProps> = ({ className }) => {
 					isLoading && s.currencies_hidden,
 				)}
 			>
+				<thead>
+					<tr className={s.table__row}>
+						<th className={s.table__col}>№</th>
+						<th className={s.table__col}>Code</th>
+						<th className={s.table__col}>Name</th>
+						<th className={s.table__col}>RUB</th>
+						<th className={s.table__col}>USD</th>
+						<th className={s.table__col}>EUR</th>
+						<th className={s.table__col}>CNY</th>
+					</tr>
+				</thead>
 				<tbody>
 					{currenciesList?.map((cur, i) => (
 						<Currency

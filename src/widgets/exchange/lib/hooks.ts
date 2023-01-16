@@ -13,7 +13,7 @@ export const useExchangeHandlers = () => {
 		setOutputAmount,
 		resetAmounts,
 	} = useConvertActions();
-	const getDebouncedConversion = useDebounce(getConversion, 500);
+	const getDebouncedConversion = useDebounce(getConversion, 1000);
 
 	const handleInputSelect = (selectedOption: SingleValue<SelectedOption>) => {
 		if (selectedOption?.value) {

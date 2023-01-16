@@ -25,10 +25,10 @@ const Currency: FC<CurrencyProps> = ({
 			<td className={cellClassName}>{index}.</td>
 			<td className={cellClassName}>{code}</td>
 			<td className={cellClassName}>{name}</td>
-			<td className={cellClassName}>{toRUB} RUB</td>
-			<td className={cellClassName}>{toUSD} USD</td>
-			<td className={cellClassName}>{toEUR} EUR</td>
-			<td className={cellClassName}>{toCNY} CNY</td>
+			<td className={cellClassName}>{toRUB}</td>
+			<td className={cellClassName}>{toUSD}</td>
+			<td className={cellClassName}>{toEUR}</td>
+			<td className={cellClassName}>{toCNY}</td>
 		</tr>
 	);
 };
