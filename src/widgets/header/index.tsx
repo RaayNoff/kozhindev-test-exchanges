@@ -2,6 +2,7 @@ import clsx from "clsx";
 import { FC } from "react";
 
 import { selectCurrencies, useCurrenciesActions } from "entities/сurrencies";
+import { selectConvert, useConvertActions } from "entities/convert";
 import { Date } from "entities/date";
 import { Button } from "shared";
 
@@ -12,10 +13,18 @@ import s from "./style.module.scss";
 const Header: FC = () => {
 	const { updateTimestamp } = useSelector(selectCurrencies);
 	const { setUpdateTimestamp, updateCurrencies } = useCurrenciesActions();
+	const { getConversion } = useConvertActions();
+	const { inputCurrency, outputCurrency } = useSelector(selectConvert);
 
 	const refreshCurrenciesData = () => {
 		setUpdateTimestamp();
 		updateCurrencies();
+		getConversion({
+			amount: 10,
+			inputCurrency: inputCurrency,
+			outputCurrency: outputCurrency,
+			isOutput: false,
+		});
 	};
 
 	return (
