@@ -1,7 +1,4 @@
-import clsx from "clsx";
 import { FC } from "react";
-
-import s from "./style.module.scss";
 
 interface CurrencyProps extends Currency {
 	index: number;
